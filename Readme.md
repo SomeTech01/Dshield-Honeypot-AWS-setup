@@ -36,13 +36,16 @@ I was able to put this together by using instructions/guides from [Dr. Johannes 
 8) open a powershell on you pc and type in: 
 
 
-<pre>
-  <code id="codeBlock">
-    ssh -i sshkey user@Your instanceIP
-  </code>
-</pre>
-
-<button onclick="copyToClipboard()">Copy</button>
+<div style="margin-bottom: 10px;">
+  <pre style="background-color: #f4f4f4; padding: 10px; border-radius: 5px; max-width: 100%; overflow-x: auto;">
+    <code id="codeBlock" style="white-space: pre-wrap;">
+      ssh -i sshkey user@YourInstanceIP
+    </code>
+  </pre>
+  <button onclick="copyToClipboard()" style="background-color: #4CAF50; color: white; padding: 5px 10px; border: none; border-radius: 3px; cursor: pointer;">
+    Copy
+  </button>
+</div>
 
 <script>
   function copyToClipboard() {
@@ -52,6 +55,8 @@ I was able to put this together by using instructions/guides from [Dr. Johannes 
     window.getSelection().addRange(range);
     document.execCommand("copy");
   }
+</script>
+
 </script>
 
 ![11](screenshots/11.png)
