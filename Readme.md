@@ -2,7 +2,7 @@
 ATTENTION: If you are here becuase of your raspberrypi install reports that your webserver is not exposed (like how mine was), please check this [guide](https://github.com/DShield-ISC/dshield/blob/main/docs/dshield-architecture/Architecture.md) first. =D
 ****
 Here we will walkthrough:
-1) [Installing the Dshiled honeypot in an AWS instance]()
+1) [Installing the Dshiled honeypot in an AWS instance](https://github.com/SomeTech01/Dshield-Honeypot-AWS-setup)
 2) [Setting up an ELK stack on another device for log analysis]()
 3) [Setting up your filebeat as a forwarder]()
 
