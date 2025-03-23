@@ -1,9 +1,10 @@
 # Dshield-Honeypot-AWS-setup
-Write up on how to setup your Dshield honeypot on an AWS instance
-
-****
 ATTENTION: If you are here becuase of your raspberrypi install reports that your webserver is not exposed (like how mine was), please check this [guide](https://github.com/DShield-ISC/dshield/blob/main/docs/dshield-architecture/Architecture.md) first. =D
 ****
+Here we will walkthrough:
+1) [Installing the Dshiled honeypot in an AWS instance]()
+2) [Setting up an ELK stack on another device for log analysis]()
+3) [Setting up your filebeat as a forwarder]()
 
 Fellow Sans.edu student or enthusiast, you will first need an AWS account to proceed. Registering for one will not be covered here, but here is a [link](https://docs.aws.amazon.com/lex/latest/dg/gs-account.html) to Amazon's documentation.
 
@@ -33,13 +34,57 @@ I was able to put this together by using instructions/guides from [Dr. Johannes 
  <span style="color:cyan;">Public IPv4 address</span>
 ![10](screenshots/10.png)
 
-8) open a powershell on you pc and type in: 
+8) open powershell on your pc and type in: 
 
 ```bash
 ssh -i sshkey user@YourInstanceIP
 ```
-
-
-
-
 ![11](screenshots/11.png)
+9) First and foremost you have to update your box:
+```bash
+sudo apt update && sudo apt full-upgrade -y
+```
+![12](screenshots/12.png)
+10) Once done, time to install our honeypot. First make a directory to clone the repository. Once the repository is cloned we'll have to run the install script.
+```bash
+mkdir install
+cd install
+git clone https://github.com/DShield-ISC/dshield.git
+sudo ./dshield/bin/install.sh
+```
+![13](screenshots/13.png)
+11) Follow the prompt. You will need your <span style="color:cyan;">email registered with dshield</span>,  <span style="color:cyan;">API key</span>, and <span style="color:cyan;">IP's + ports for the configuration</span> (last bit autofilled for me you'll just have to double check)
+![14](screenshots/14.png)
+![15](screenshots/15.png)
+12) After the process is done you will be asked to <span style="color:cyan;">reboot</span>. Take note of the <span style="color:cyan;">new ssh port</span> and additional scripts like <span style="color:cyan;">status.sh and cleanup.sh <span>
+![17](screenshots/17.png)
+
+
+13) Before turnng on your instance got to the <span style="color:cyan;">Security</span> tab > <span style="color:cyan;">Security groups </span>
+![18](screenshots/18.png)
+14) Click on <span style="color:cyan;">Edit inbound rules</span>. Here you will create two rules: 
+    1) to allow ssh from your home subnet: Type:<span style="color:cyan;"> Cutom TCP</span>, Port range:<span style="color:cyan;">12222</span>, and Source:<span style="color:cyan;"> My IP</span>
+    2)  to "harvest logs" from the big bad internet it up as : Type:<span style="color:cyan;"> ALL traffic</span>, Port range:<span style="color:cyan;">All</span>, and Source:<span style="color:cyan;"> Anywhere-IPv4</span>
+![20](screenshots/20.png)
+![21](screenshots/21.png)
+15) Rememeber the important scripts earlier? You should run <span style="color:cyan;"> status.sh</span> as sudo to check the settings. After sometime login to [dshield.org](https://dshield.org/) to check you logs out.
+![22](screenshots/22.png)
+16) Some future head/wallet ache advise: search for <span style="color:cyan;">Billing and Cost Management</span> on the search bar. On the left hand side  under Cost Management click <span style="color:cyan;">Budgets</span> then <span style="color:cyan;">Create budget</span>. Use <span style="color:cyan;">Zero spend budget</span> template, add an <span style="color:cyan;">email recipient</span> to be notified when threshold is hit, and lastly scroll down to click <span style="color:cyan;">Create budget</span>. Should look like this after you set up. 
+![23](screenshots/23.png)
+![24](screenshots/24.png)
+
+
+
+
+next [Setting up an ELK stack on another device for log analysis]()
+# Resources:
+
+Dr. Johannes Ullrich - https://www.youtube.com/watch?v=fMqhoNnyvmE
+
+Dshield git page - https://github.com/DShield-ISC/dshield
+
+Dshield website - https://dshield.org/
+
+Guy Bruneau - https://github.com/bruneaug/DShield-SIEM?tab=readme-ov-file 
+
+15HzMonitor - https://github.com/15HzMonitor/Internship-Blog-Post/blob/main/1.%20AWS%20DShield%20Sensor%20Setup.md
