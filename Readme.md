@@ -35,27 +35,11 @@ I was able to put this together by using instructions/guides from [Dr. Johannes 
 
 8) open a powershell on you pc and type in: 
 
+```bash
+ssh -i sshkey user@YourInstanceIP
+```
 
-<div style="max-width: 500px; margin-bottom: 10px;">
-  <pre style="background-color: #f4f4f4; padding: 8px; border-radius: 5px; font-size: 14px; overflow-x: auto;">
-    <code id="codeBlock" style="white-space: pre-wrap;">
-      ssh -i sshkey user@YourInstanceIP
-    </code>
-  </pre>
-  <button onclick="copyToClipboard()" style="background-color: #4CAF50; color: white; padding: 5px 10px; border: none; border-radius: 3px; cursor: pointer; font-size: 14px;">
-    Copy
-  </button>
-</div>
 
-<script>
-  function copyToClipboard() {
-    var copyText = document.getElementById("codeBlock");
-    var range = document.createRange();
-    range.selectNode(copyText);
-    window.getSelection().addRange(range);
-    document.execCommand("copy");
-  }
-</script>
 
 
 ![11](screenshots/11.png)
