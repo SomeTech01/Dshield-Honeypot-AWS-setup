@@ -76,7 +76,7 @@ sudo ./dshield/bin/install.sh
 
 
 
-next [Setting up an ELK stack on another device for log analysis]()
+next [Setting up an ELK stack on another device for log analysis](https://github.com/SomeTech01/Dshield-Honeypot-AWS-setup/blob/main/ELK%20stack%20-%20local.md)
 # Resources:
 
 Dr. Johannes Ullrich - https://www.youtube.com/watch?v=fMqhoNnyvmE
