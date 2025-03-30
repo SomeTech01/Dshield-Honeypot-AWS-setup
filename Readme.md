@@ -3,8 +3,8 @@ ATTENTION: If you are here becuase of your raspberrypi install reports that your
 ****
 Here we will walkthrough:
 1) [Installing the Dshiled honeypot in an AWS instance](https://github.com/SomeTech01/Dshield-Honeypot-AWS-setup)
-2) [Setting up an ELK stack on another device for log analysis]()
-3) [Setting up your filebeat as a forwarder]()
+2) [Setting up an ELK stack on another device for log analysis](https://github.com/SomeTech01/Dshield-Honeypot-AWS-setup/blob/main/ELK%20stack%20-%20local.md)
+3) [Setting up your filebeat as a forwarder](https://github.com/SomeTech01/Dshield-Honeypot-AWS-setup/blob/main/filebeat%20setup.md)
 
 Fellow Sans.edu student or enthusiast, you will first need an AWS account to proceed. Registering for one will not be covered here, but here is a [link](https://docs.aws.amazon.com/lex/latest/dg/gs-account.html) to Amazon's documentation.
 
