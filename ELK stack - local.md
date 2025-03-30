@@ -191,7 +191,7 @@ sudo docker exec -ti fleet-server bash
 
 previous [Dshield Honeypot AWS setup](https://github.com/SomeTech01/Dshield-Honeypot-AWS-setup)
 
-next [Setting up filebeat]()
+next [Setting up filebeat](https://github.com/SomeTech01/Dshield-Honeypot-AWS-setup/blob/main/filebeat%20setup.md)
 
 References:
 
